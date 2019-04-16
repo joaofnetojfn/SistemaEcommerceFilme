@@ -1,17 +1,16 @@
 var app = angular.module('todoApp', [])
-.controller('LivroController', function($scope,$http) {
+.controller('FilmeController', function($scope,$http) {
   
-  var url = 'http://localhost:9000/livros';
+  var url = 'http://localhost:9000/filmes';
   var urlEditoras = 'http://localhost:9000/editoras';
   var urlCategorias = 'http://localhost:9000/categorias';
   
-  $scope.nomeTela = "Cadastro de Livro";
+  $scope.nomeTela = "Cadastro de Filme";
 
   $scope.pesquisar = function() {
     $http.get(url).then(function (response) {
         $scope.livros = response.data;
     }, function (error) {
-        alert(error);
         console.log(error);
     });
 }
@@ -25,7 +24,6 @@ $scope.salvar = function() {
                 $scope.livros.push(response.data);
                 $scope.novo();
             }, function (error) {
-                alert(error);
                 console.log(error);
             });
         }
@@ -34,7 +32,6 @@ $scope.salvar = function() {
             $scope.pesquisar();
             $scope.novo();
         }, function (error) {
-            alert(error);
             console.log(error);
         });
     } 
@@ -49,7 +46,6 @@ $scope.excluir = function() {
             $scope.pesquisar();
             $scope.novo();
         }, function (error) {
-            alert(error);
             console.log(error);
         }); 
     }
@@ -71,7 +67,6 @@ $scope.itensCategoria = [
         $scope.categorias = res.data;
         console.log("Categorias DATA: ", res.data);
     }, function (error) {
-        alert(error);
         console.log(error);
     })
   ];
@@ -84,7 +79,6 @@ $scope.itensCategoria = [
         $scope.editoras = rest.data;
         console.log("Editoras : ", rest.data);
     }, function (error) {
-        alert(error);
         console.log(error);
     })
   ];

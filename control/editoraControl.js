@@ -3,13 +3,12 @@ var app = angular.module('todoApp', [])
   
   var url = 'http://localhost:9000/editoras';
   
-  $scope.nomeTela = "Cadastro de Editora";
+  $scope.nomeTela = "Cadastro da Editora";
 
   $scope.pesquisar = function() {
     $http.get(url).then(function (response) {
         $scope.editoras = response.data;
     }, function (error) {
-        alert(error);
         console.log(error);
     });
 }
@@ -23,7 +22,6 @@ $scope.salvar = function() {
                 $scope.editoras.push(response.data);
                 $scope.novo();
             }, function (error) {
-                alert(error);
                 console.log(error);
             });
         }
@@ -32,7 +30,6 @@ $scope.salvar = function() {
             $scope.pesquisar();
             $scope.novo();
         }, function (error) {
-            alert(error);
             console.log(error);
         });
     } 
@@ -40,14 +37,13 @@ $scope.salvar = function() {
 
 $scope.excluir = function() {
     if (typeof $scope.editora.idEditora == 'undefined') {
-        alert('Escolha um editora');
+        alert('Escolha uma editora');
     } else {
         urlExcluir = url+"/"+$scope.editora.idEditora;
         $http.delete(urlExcluir).then(function () {
             $scope.pesquisar();
             $scope.novo();
         }, function (error) {
-            alert(error);
             console.log(error);
         }); 
     }

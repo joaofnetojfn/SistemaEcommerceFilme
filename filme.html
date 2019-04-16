@@ -11,11 +11,11 @@
     <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/navbars/">
     
     <script src="dist/js/angular.min.js"></script>
-    <script src="control/livroControl.js"></script>
+    <script src="control/filmeControl.js"></script>
 
     <link href="dist/css/bootstrap.min.css" rel="stylesheet">
   </head>
-<body ng-controller="LivroController">
+<body ng-controller="FilmeController">
     <div ng-include="'menu.html'"></div>
 
 <div class="container"> 
@@ -48,12 +48,6 @@
                         <label for="inputCodigo">Codigo</label>
                         <input type="text" class="form-control" disabled required id="inputCodigo" ng-model="livro.codigo">
                   </div>
-                  <div class="form-group col-md-4">
-                    <label for="inputIsbn">ISBN</label>
-                    <input type="text" class="form-control is-valid" required id="inputIsbn" ng-model="livro.isbn">
-                    <div class="invalid-feedback">
-                      Digite o ISBN do livro.
-                 </div>
                   </div>
                   <div class="form-group col-md-6">
                     <label for="inputTitulo">Titulo</label>
@@ -88,7 +82,6 @@
                 <thead>
                   <tr>
                     <th scope="col">Codigo</th>
-                    <th scope="col">ISBN</th>
                     <th scope="col">Titulo</th>
                     <th scope="col">Autor</th>
                     <th scope="col">Categoria</th>
@@ -96,17 +89,16 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr ng-repeat="livrosTabela in livros" ng-click="seleciona(livrosTabela)">
-                    <th scope="row">{{ livrosTabela.codigo }}</th>
-                    <td>{{ livrosTabela.isbn }}</td>
-                    <td>{{ livrosTabela.titulo }}</td>
-                    <td>{{ livrosTabela.autor }}</td>
-                    <td>{{ livrosTabela.categoria.descricao }}</td>
-                    <td>{{ livrosTabela.editora.nome }}</td>
+                  <tr ng-repeat="filmeTabela in filmes" ng-click="seleciona(filmeTabela)">
+                    <th scope="row">{{ filmeTabela.codigo }}</th>
+                    <td>{{ filmeTabela.titulo }}</td>
+                    <td>{{ filmeTabela.autor }}</td>
+                    <td>{{ filmeTabela.categoria.descricao }}</td>
+                    <td>{{ filmeTabela.editora.nome }}</td>
                   </tr>
                 </tbody>
               </table>
-              <span ng-show="(livros | filter: criterio).length == 0">Infelizmente  n&atilde;o temos o que voc&ecirc; est&aacute; procurando</span>
+              <span ng-show="(filmes | filter: criterio).length == 0">Infelizmente  n&atilde;o temos o que voc&ecirc; est&aacute; procurando</span>
           </div>
       </div>
 </div>

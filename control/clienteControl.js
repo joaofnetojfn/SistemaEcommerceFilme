@@ -9,7 +9,7 @@ var app = angular.module('todoApp', [])
     $http.get(url).then(function (response) {
         $scope.clientes = response.data;
     }, function (error) {
-        alert(error);
+    
         console.log(error);
     });
 }
@@ -23,7 +23,7 @@ $scope.salvar = function() {
                 $scope.clientes.push(response.data);
                 $scope.novo();
             }, function (error) {
-                alert(error);
+               
                 console.log(error);
             });
         }         
@@ -47,7 +47,7 @@ $scope.excluir = function() {
             $scope.pesquisar();
             $scope.novo();
         }, function (error) {
-            alert(error);
+           
             console.log(error);
         }); 
     }
